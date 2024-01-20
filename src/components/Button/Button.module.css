@@ -1,0 +1,20 @@
+.button {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-color: rgba(0, 0, 0, 0.363);
+  border-style: solid;
+  border-width: 1px;
+  width: fit-content;
+  height: 40px;
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 18px;
+  border-radius: 7px;
+  font-family: "korean";
+}
+
+@font-face {
+  font-family: "korean";
+  src: url("../../assets/fonts/korean/LINESeedKR-Rg.ttf");
+}
