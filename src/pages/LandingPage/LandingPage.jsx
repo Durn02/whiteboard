@@ -12,7 +12,9 @@ const LandingPage = () => {
   return (
     <>
       <Header logined={false} userInfo={userInfo} />
-      <div className={style.container}>메인 페이지</div>
+      <div className={style.container}>
+        <div className={style.greetings}>Whitboard에 오신것을 환영합니다!</div>
+      </div>
     </>
   );
 };

@@ -2,6 +2,27 @@
   margin-left: 50px;
   margin-right: 50px;
   font-family: "korean ";
-  background-color: red;
   padding: 5px;
+  display: flex;
+  justify-content: left;
+  align-items: top;
+
+  height: 300px;
+}
+
+.greetings {
+  width: fit-content;
+  height: fit-content;
+  margin-right: 10px;
+  font-size: 25px;
+  font-family: "korean";
+}
+
+@font-face {
+  font-family: "english";
+  src: url("../../assets/fonts/english/LINESeedSans_Rg.ttf");
+}
+@font-face {
+  font-family: "korean";
+  src: url("../../assets/fonts/korean/LINESeedKR-Rg.ttf");
 }
