@@ -13,8 +13,8 @@ const Header = ({ logined, userInfo }) => {
         <></>
         {!logined && (
           <div className={styles.headerContainer}>
-            <Button placeHolder={"로그인"}></Button>
-            <Button placeHolder={"회원가입"}></Button>
+            <Button placeHolder={"로그인"} as="Link" to={"/signin"}></Button>
+            <Button placeHolder={"회원가입"} as="Link" to={"/signup"}></Button>
           </div>
         )}
         {logined && (
