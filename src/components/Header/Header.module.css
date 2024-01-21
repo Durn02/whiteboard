@@ -29,8 +29,3 @@
   height: 35px;
   margin-right: 5px;
 }
-
-@font-face {
-  font-family: "english";
-  src: url("../../assets/fonts/english/LINESeedSans_Rg.ttf");
-}

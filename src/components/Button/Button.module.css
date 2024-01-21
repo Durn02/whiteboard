@@ -13,8 +13,3 @@
   border-radius: 7px;
   font-family: "korean";
 }
-
-@font-face {
-  font-family: "korean";
-  src: url("../../assets/fonts/korean/LINESeedKR-Rg.ttf");
-}
