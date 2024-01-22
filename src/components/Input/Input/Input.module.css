@@ -1,0 +1,13 @@
+.input {
+  display: block;
+  background-color: white;
+  margin-bottom: 30px;
+  font-family: "korean", "english";
+  width: 450px;
+  height: 50px;
+  border: 1px solid #ededed;
+  border-radius: 7px;
+  padding: 15px;
+  outline: none;
+  font-size: larger;
+}
