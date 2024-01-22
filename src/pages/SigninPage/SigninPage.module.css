@@ -3,29 +3,19 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  /* background-color: rgb(81, 81, 177); */
   width: 100vw;
   height: 100vh;
   flex-direction: column;
 }
 
 .signinbox {
-  margin-top: 10%;
-  /* background-color: red; */
+  margin-top: 100px;
   width: fit-content;
-  font-family: "english";
+  font-family: "english", "korean";
 
   & .title {
     text-align: center;
-    font-size: 32px;
-    margin-bottom: 10px;
-  }
-
-  & .input {
-    display: block;
-    /* background-color: green; */
-    margin-bottom: 10px;
-    font-family: "korean";
-    width: 200px;
+    font-size: 60px;
+    margin-bottom: 50px;
   }
 }
