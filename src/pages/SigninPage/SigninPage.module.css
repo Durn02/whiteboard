@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: rgb(81, 81, 177); */
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.signinbox {
+  margin-top: 10%;
+  /* background-color: red; */
+  width: fit-content;
+  font-family: "english";
+
+  & .title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  & .input {
+    display: block;
+    /* background-color: green; */
+    margin-bottom: 10px;
+    font-family: "korean";
+    width: 200px;
+  }
+}
