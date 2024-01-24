@@ -2,7 +2,7 @@ import { useState } from "react";
 import PwShowButton from "../../Button/PwShowButton/PwShowButton";
 import styles from "./PwInput.module.css";
 
-function PwInput({ placeholder }) {
+const PwInput = ({ placeholder }) => {
   const [showPw, setShowPw] = useState("password");
   return (
     <div className={styles.container}>
@@ -17,6 +17,6 @@ function PwInput({ placeholder }) {
       />
     </div>
   );
-}
+};
 
 export default PwInput;

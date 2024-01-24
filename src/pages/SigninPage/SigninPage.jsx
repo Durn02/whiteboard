@@ -4,7 +4,7 @@ import Input from "../../components/Input/Input/Input";
 import PwInput from "../../components/Input/PwInput/PwInput";
 import style from "./SigninPage.module.css";
 
-function SigninPage() {
+const SigninPage = () => {
   return (
     <div className={style.container}>
       <div className={style.signinbox}>
@@ -17,6 +17,6 @@ function SigninPage() {
       </div>
     </div>
   );
-}
+};
 
 export default SigninPage;
