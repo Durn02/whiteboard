@@ -1,14 +1,7 @@
 import Header from "../../components/Header/Header";
 import style from "./LandingPage.module.css";
 
-const LandingPage = () => {
-  const userInfo = {
-    name: "두",
-    id: "cdh",
-    pw: "1234",
-    student_number: "20211",
-    isStudent: "Y",
-  };
+const LandingPage = ({ userInfo }) => {
   return (
     <>
       <Header logined={false} userInfo={userInfo} />
