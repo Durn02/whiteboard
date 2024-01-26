@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import Button from "../../components/Button/Button";
-import Input from "../../components/Input/Input/Input";
-import PwInput from "../../components/Input/PwInput/PwInput";
+import SigninInput from "../../components/Input/SigninInput/SigninInput";
+import SigninPwInput from "../../components/Input/SigninPwInput/SigninPwInput";
+import SigninButton from "../../components/Button/SigninButton/SigninButton";
 import style from "./SigninPage.module.css";
 
 const SigninPage = () => {
@@ -11,9 +11,9 @@ const SigninPage = () => {
         <div className={style.title}>
           <Link to={"/"}>WhiteBoard</Link>
         </div>
-        <Input placeholder={"아이디"} />
-        <PwInput placeholder={"비밀번호"} />
-        <Button placeholder={"로그인"} />
+        <SigninInput placeholder={"아이디"} />
+        <SigninPwInput />
+        <SigninButton placeholder={"로그인"} />
       </div>
     </div>
   );

@@ -8,14 +8,18 @@
   flex-direction: column;
 }
 
-.signinbox {
+.signupbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin-top: 100px;
   width: fit-content;
+  height: 510px;
   font-family: "english", "korean";
 
   & .title {
     text-align: center;
     font-size: 60px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
 }

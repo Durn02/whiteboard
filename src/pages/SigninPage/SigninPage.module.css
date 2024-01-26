@@ -9,13 +9,19 @@
 }
 
 .signinbox {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
   margin-top: 200px;
   width: fit-content;
+  height: 330px;
+  justify-content: space-between;
   font-family: "english", "korean";
 
   & .title {
     text-align: center;
     font-size: 60px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
 }

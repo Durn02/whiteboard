@@ -1,7 +1,7 @@
-import styles from "./Header.module.css";
 import logo from "../../assets/images/icons/pencil.png";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
+import styles from "./Header.module.css";
 
 const Header = ({ logined, userInfo }) => {
   return (
@@ -15,8 +15,14 @@ const Header = ({ logined, userInfo }) => {
         </Link>
         {!logined && (
           <div className={styles.headerContainer}>
-            <Button placeholder={"로그인"} as="Link" to={"/signin"}></Button>
-            <Button placeholder={"회원가입"} as="Link" to={"/signup"}></Button>
+            <div className={styles.buttonContainer}>
+              <Button placeholder={"로그인"} as="Link" to={"/signin"}></Button>
+              <Button
+                placeholder={"회원가입"}
+                as="Link"
+                to={"/signup"}
+              ></Button>
+            </div>
           </div>
         )}
         {logined && (

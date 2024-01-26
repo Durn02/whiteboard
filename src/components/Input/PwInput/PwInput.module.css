@@ -1,15 +1,13 @@
 .container {
   display: flex;
   /* background-color: red; */
-  width: 450px;
-  height: 50px;
-  margin-bottom: 30px;
+  width: 100%;
+  height: 100%;
 }
 
 .pwInput {
   display: flex;
   background-color: white;
-  margin-bottom: 10px;
   font-family: "korean", "english";
   width: 80%;
   height: 100%;
