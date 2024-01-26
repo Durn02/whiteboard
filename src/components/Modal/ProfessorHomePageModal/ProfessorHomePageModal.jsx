@@ -7,8 +7,8 @@ const ProfessorHomePageModal = ({ setShowModal }) => {
     <div className={style.container}>
       <div className={style.modal}>
         <div className={style.headerContainer}>
-          <div className={style.title}>강의 추가하기</div>
-          <div className={style.button}>
+          <div className={style.titleContainer}>강의 추가하기</div>
+          <div className={style.closeButtonContainer}>
             <Button
               placeholder={"X"}
               onClick={() => {
@@ -19,9 +19,15 @@ const ProfessorHomePageModal = ({ setShowModal }) => {
         </div>
         <div className={style.contentContainer}>
           <div className={style.content}>
-            <Input placeholder={"과목 명"} />
-            <Input placeholder={"시간"} />
-            <Button placeholder={"등록하기"} />
+            <div className={style.inputContainer}>
+              <Input placeholder={"과목명"} />
+            </div>
+            <div className={style.inputContainer}>
+              <Input placeholder={"시간"} />
+            </div>
+            <div className={style.registerButtonContainer}>
+              <Button placeholder={"등록하기"} />
+            </div>
           </div>
         </div>
       </div>
