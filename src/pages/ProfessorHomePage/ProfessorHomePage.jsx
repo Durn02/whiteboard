@@ -1,11 +1,14 @@
+import { useState } from "react";
 import Button from "../../components/Button/Button";
 import Header from "../../components/Header/Header";
 import ProfessorTable from "../../components/Table/ProfessorTable";
-import style from "./ProfessorHomePage.module.css";
 import getLectureInfo from "../../utils/getLectureInfo";
+import ProfessorHomePageModal from "../../components/Modal/ProfessorHomePageModal/ProfessorHomePageModal";
+import style from "./ProfessorHomePage.module.css";
 
 const ProfessorPage = ({ userInfo }) => {
   const lectureInfo = getLectureInfo();
+  const [showModal, setShowModal] = useState(false);
   return (
     <div>
       <Header logined={true} userInfo={userInfo} />
@@ -18,11 +21,12 @@ const ProfessorPage = ({ userInfo }) => {
           <Button
             placeholder={"강의 추가"}
             onClick={() => {
-              alert("hi");
+              setShowModal(true);
             }}
           />
         </div>
       </div>
+      {showModal && <ProfessorHomePageModal setShowModal={setShowModal} />}
     </div>
   );
 };
