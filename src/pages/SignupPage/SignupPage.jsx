@@ -1,23 +1,35 @@
 import { Link } from "react-router-dom";
 import Select from "../../components/Select/Select";
-import SignupInput from "../../components/Input/SigninInput/SigninInput";
-import SignupPwInput from "../../components/Input/SigninPwInput/SigninPwInput";
-import SignupButton from "../../components/Button/SigninButton/SigninButton";
+import Input from "../../components/Input/Input";
+import PwInput from "../../components/Input/PwInput/PwInput";
+import Button from "../../components/Button/Button";
 import style from "./SignupPage.module.css";
 
 const SignupPage = () => {
   return (
     <div className={style.container}>
       <div className={style.signupbox}>
-        <div className={style.title}>
+        <div className={style.titleContainer}>
           <Link to={"/"}>WhiteBoard</Link>
         </div>
-        <SignupInput placeholder={"아이디"} />
-        <SignupPwInput />
-        <SignupInput placeholder={"이름"} />
-        <SignupInput placeholder={"학번"} />
-        <Select />
-        <SignupButton placeholder={"회원가입"} />
+        <div className={style.inputContainer}>
+          <Input placeholder={"아이디"} />
+        </div>
+        <div className={style.inputContainer}>
+          <PwInput />
+        </div>
+        <div className={style.inputContainer}>
+          <Input placeholder={"이름"} />
+        </div>
+        <div className={style.inputContainer}>
+          <Input placeholder={"학번"} />
+        </div>
+        <div className={style.inputContainer}>
+          <Select />
+        </div>
+        <div className={style.buttonContainer}>
+          <Button placeholder="회원가입" />
+        </div>
       </div>
     </div>
   );
