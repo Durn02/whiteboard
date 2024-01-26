@@ -5,15 +5,14 @@ import style from "./ProfessorHomePage.module.css";
 import getLectureInfo from "../../utils/getLectureInfo";
 
 const ProfessorPage = ({ userInfo }) => {
-  const lectures = getLectureInfo();
-  alert(lectures);
+  const lectureInfo = getLectureInfo();
   return (
     <div>
       <Header logined={true} userInfo={userInfo} />
       <div className={style.title}>내 강의</div>
       <div className={style.container}>
         <div className={style.table}>
-          <ProfessorTable />
+          <ProfessorTable lectureInfo={lectureInfo} />
         </div>
         <div className={style.button}>
           <Button

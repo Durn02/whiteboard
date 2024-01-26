@@ -4,15 +4,10 @@ import SigninPage from "./pages/SigninPage/SigninPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import NoPage from "./pages/NoPage/NoPage";
 import ProfessorHomePage from "./pages/ProfessorHomePage/ProfessorHomePage";
+import getUserInfo from "./utils/getUserInfo";
 
 function App() {
-  const userInfo = {
-    name: "두",
-    id: "cdh",
-    pw: "1234",
-    student_number: "20211",
-    isStudent: "N",
-  };
+  const userInfo = getUserInfo();
   return (
     <BrowserRouter>
       <Routes>

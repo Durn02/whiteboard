@@ -1,6 +1,6 @@
 import style from "./ProfessorTable.module.css";
 
-const ProfessorTable = () => {
+const ProfessorTable = ({ lectureInfo }) => {
   return (
     <table className={style.table}>
       <thead className={style.head}>
@@ -8,20 +8,21 @@ const ProfessorTable = () => {
           <th>과목코드</th>
           <th>과목명</th>
           <th>시간</th>
+          <th>담당교수</th>
         </tr>
       </thead>
-      <tbody>
-        <tr className={style.body}>
-          <td>COSE1111</td>
-          <td>컴퓨터프로그래밍1</td>
-          <td>화1 목1</td>
-        </tr>
-        <tr className={style.body}>
-          <td>COSE1111</td>
-          <td>컴퓨터프로그래밍1</td>
-          <td>화1 목1</td>
-        </tr>
-      </tbody>
+      {lectureInfo.map((lecture, i) => {
+        return (
+          <tbody key={i}>
+            <tr className={style.body}>
+              <td>{lecture.code}</td>
+              <td>{lecture.name}</td>
+              <td>{lecture.time}</td>
+              <td>{lecture.prof}</td>
+            </tr>
+          </tbody>
+        );
+      })}
     </table>
   );
 };
