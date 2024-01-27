@@ -1,6 +1,9 @@
 import style from "./ProfessorTable.module.css";
 
 const ProfessorTable = ({ lectureInfo }) => {
+  const onTableClickHandler = (member) => {
+    alert(member);
+  };
   return (
     <table className={style.table}>
       <thead className={style.head}>
@@ -13,7 +16,12 @@ const ProfessorTable = ({ lectureInfo }) => {
       </thead>
       {lectureInfo.map((lecture, i) => {
         return (
-          <tbody key={i}>
+          <tbody
+            key={i}
+            onDoubleClick={() => {
+              onTableClickHandler(lecture.member);
+            }}
+          >
             <tr className={style.body}>
               <td>{lecture.code}</td>
               <td>{lecture.name}</td>

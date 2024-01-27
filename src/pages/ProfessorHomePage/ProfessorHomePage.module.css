@@ -1,11 +1,12 @@
-.title {
+.titleContainer {
   margin-left: 50px;
+  margin-right: 50px;
   margin-bottom: 10px;
   font-size: x-large;
   font-family: "korean";
 }
 
-.container {
+.contentContainer {
   display: flex;
   margin-left: 50px;
   margin-right: 50px;
@@ -13,7 +14,11 @@
   box-sizing: border-box;
 }
 
-.table {
+.tableContainer {
   flex: 1;
   margin-right: 20px;
+}
+
+.buttonContainer {
+  height: fit-content;
 }
