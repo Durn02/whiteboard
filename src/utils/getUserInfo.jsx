@@ -4,7 +4,7 @@ const getUserInfo = () => {
     id: "cdh",
     pw: "1234",
     student_number: "20211",
-    isStudent: "N",
+    isStudent: "Y",
   };
   return userInfo;
 };
