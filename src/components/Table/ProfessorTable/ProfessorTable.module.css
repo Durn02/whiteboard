@@ -9,12 +9,14 @@
 .head {
   background-color: #ededed;
   margin: 5px;
+  height: 43px;
   border-bottom: 1.2px solid black;
   font-size: larger;
 }
 
 .body {
   /* background-color: rgb(145, 145, 236); */
+  height: 40px;
   border-bottom: 1px solid gray;
   user-select: none;
 }

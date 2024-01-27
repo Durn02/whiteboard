@@ -12,19 +12,19 @@ const ProfessorPage = ({ userInfo }) => {
   return (
     <div>
       <Header logined={true} userInfo={userInfo} />
-      <div className={style.titleContainer}>내 강의</div>
-      <div className={style.contentContainer}>
-        <div className={style.tableContainer}>
-          <ProfessorTable lectureInfo={lectureInfo} />
-        </div>
-        <div className={style.buttonContainer}>
+      <div className={style.headerContainer}>
+        <div className={style.titleContainer}>강의목록</div>
+        <div className={style.myLectureContainer}>
           <Button
-            placeholder={"강의 추가"}
+            placeholder={"강의추가"}
             onClick={() => {
               setShowModal(true);
             }}
           />
         </div>
+      </div>
+      <div className={style.tableContainer}>
+        <ProfessorTable lectureInfo={lectureInfo} />
       </div>
       {showModal && <ProfessorHomePageModal setShowModal={setShowModal} />}
     </div>
