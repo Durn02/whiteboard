@@ -27,7 +27,10 @@ const Header = ({ logined, userInfo }) => {
         )}
         {logined && (
           <div className={styles.headerContainer}>
-            <Button placeholder={userInfo.name}></Button>
+            <Button
+              className={styles.buttonContainer}
+              placeholder={userInfo.name}
+            ></Button>
           </div>
         )}
       </div>
