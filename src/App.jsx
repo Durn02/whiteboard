@@ -15,17 +15,17 @@ function App() {
         <Route path="/" element={<LandingPage userInfo={userInfo} />} />
         <Route path="/signin" element={<SigninPage />} />
         <Route path="/signup" element={<SignupPage />} />
-        {userInfo.isStudent === "Y" ? (
-          <Route
-            path="/register"
-            element={<StudentHomePage userInfo={userInfo} />}
-          />
-        ) : (
-          <Route
-            path="/manage"
-            element={<ProfessorHomePage userInfo={userInfo} />}
-          />
-        )}
+        {/* {userInfo.isStudent === "Y" ? ( */}
+        <Route
+          path="/register"
+          element={<StudentHomePage userInfo={userInfo} />}
+        />
+        {/* ) : ( */}
+        <Route
+          path="/manage"
+          element={<ProfessorHomePage userInfo={userInfo} />}
+        />
+        {/* )} */}
 
         <Route path="/*" element={<NoPage />} />
       </Routes>

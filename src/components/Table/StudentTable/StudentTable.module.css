@@ -1,0 +1,30 @@
+.tableContainer {
+  /* background-color: rgb(214, 214, 240); */
+  width: 100%;
+  text-align: center;
+  font-family: "korean";
+  overflow: hidden;
+}
+
+.headContainer {
+  background-color: #ededed;
+  margin: 5px;
+  height: 43px;
+  border-bottom: 1.2px solid black;
+  font-size: larger;
+}
+
+.bodyContainer {
+  /* background-color: rgb(145, 145, 236); */
+  user-select: none;
+  border-bottom: 1px solid gray;
+}
+.bodyContainer:hover {
+  background-color: #ededed;
+}
+
+.buttonContainer {
+  width: fit-content;
+  height: 40px;
+  margin: 5px;
+}
