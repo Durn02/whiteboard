@@ -19,6 +19,11 @@
   user-select: none;
   border-bottom: 1px solid gray;
 }
+.registeredBodyContainer {
+  background-color: rgb(197, 197, 197);
+  user-select: none;
+  border-bottom: 1px solid gray;
+}
 .bodyContainer:hover {
   background-color: #ededed;
 }

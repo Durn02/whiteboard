@@ -1,8 +1,8 @@
 import Button from "../../Button/Button";
 import style from "./StudentTable.module.css";
 
-const StudentTable = ({ lectureInfo }) => {
-  // const StudentTable = ({ lectureInfo, userInfo }) => {
+const StudentTable = ({ lectureInfo, userInfo }) => {
+  var rowColor = style.bodyContainer;
   return (
     <table className={style.tableContainer}>
       <thead className={style.headContainer}>
@@ -15,9 +15,11 @@ const StudentTable = ({ lectureInfo }) => {
         </tr>
       </thead>
       {lectureInfo.map((lecture, i) => {
-        // if (lecture.member.includes(userInfo.name)) alert("dlTdma");
+        lecture.member.includes(userInfo.name)
+          ? (rowColor = style.bodyContainer)
+          : (rowColor = style.registeredBodyContainer);
         return (
-          <tbody key={i} className={style.bodyContainer}>
+          <tbody key={i} className={rowColor}>
             <tr>
               <td>{lecture.code}</td>
               <td>{lecture.name}</td>
