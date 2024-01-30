@@ -17,17 +17,24 @@ const getLectureInfo = () => {
     },
     {
       code: "COSE4113",
-      name: "컴퓨터프로그래밍100",
+      name: "컴퓨터프로그래밍11",
       time: "화9 목9",
       prof: "두",
-      member: ["두2", "두1", "두6", "두8"],
+      member: ["두2", "두9", "두6", "두8"],
     },
     {
       code: "COSE4113",
       name: "컴퓨터프로그래밍7",
       time: "월9 수9",
       prof: "두",
-      member: ["두9", "두8"],
+      member: ["두9", "두1"],
+    },
+    {
+      code: "COSE4313",
+      name: "컴퓨터프로그래밍71",
+      time: "금9 수9",
+      prof: "두",
+      member: ["두9", "두8", "두1"],
     },
   ];
   return lectureInfo;
