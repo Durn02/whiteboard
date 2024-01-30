@@ -1,6 +1,6 @@
 import getLectureInfo from "../getLectureInfo";
 
-const AddMember = (lectureId, userName) => {
+const addMember = (lectureId, userName) => {
   var lectureInfo = getLectureInfo();
   if (lectureInfo[lectureId].member.includes(userName)) {
     return 0;
@@ -10,4 +10,4 @@ const AddMember = (lectureId, userName) => {
   return 1;
 };
 
-export default AddMember;
+export default addMember;

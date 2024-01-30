@@ -1,4 +1,4 @@
-import AddMember from "../../../utils/setLectureInfo/AddMember";
+import addMember from "../../../utils/setLectureInfo/addMember";
 import Button from "../../Button/Button";
 import style from "./StudentTable.module.css";
 
@@ -15,7 +15,7 @@ const Rows = ({ index, lecture, rowColor, userName }) => {
             <Button
               placeholder={"신청"}
               onClick={() => {
-                const ret = AddMember(index, userName);
+                const ret = addMember(index, userName);
                 if (ret === 1) alert("신청되었습니다!");
                 else if (ret === 0) alert("이미 신청한 강의입니다!");
                 else
