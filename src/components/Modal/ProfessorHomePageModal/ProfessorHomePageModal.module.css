@@ -13,8 +13,8 @@
 .modal {
   width: 50%;
   max-width: 500px;
-  height: 28%;
-  min-height: 250px;
+  height: 35%;
+  min-height: 320px;
   background-color: white;
 }
 
