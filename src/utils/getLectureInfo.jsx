@@ -15,6 +15,20 @@ const getLectureInfo = () => {
       prof: "두",
       member: ["두2", "두4", "두6", "두8"],
     },
+    {
+      code: "COSE4113",
+      name: "컴퓨터프로그래밍100",
+      time: "화9 목9",
+      prof: "두",
+      member: ["두2", "두1", "두6", "두8"],
+    },
+    {
+      code: "COSE4113",
+      name: "컴퓨터프로그래밍7",
+      time: "월9 수9",
+      prof: "두",
+      member: ["두9", "두8"],
+    },
   ];
   return lectureInfo;
 };
