@@ -7,7 +7,7 @@ import ProfessorHomePageModal from "../../components/Modal/ProfessorHomePageModa
 import style from "./ProfessorHomePage.module.css";
 
 const ProfessorPage = ({ userInfo }) => {
-  const lectureInfo = getLectureInfo();
+  const lectureInfo = getLectureInfo(userInfo.name);
   const [showModal, setShowModal] = useState(false);
   return (
     <div>
