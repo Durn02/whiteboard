@@ -1,8 +1,23 @@
+import { useState } from "react";
+import addLecture from "../../../utils/setLectureInfo/addLecture";
 import Button from "../../Button/Button";
 import Input from "../../Input/Input";
 import style from "./ProfessorHomePageModal.module.css";
 
-const ProfessorHomePageModal = ({ setShowModal }) => {
+const ProfessorHomePageModal = ({ setShowModal, userName }) => {
+  const [lectureCode, setLectureCode] = useState(null);
+  const [lectureName, setLectureName] = useState(null);
+  const [lectureTime, setLectureTime] = useState(null);
+  const onRegisterButtonClickHandler = (
+    userName,
+    lectureCode,
+    lectureName,
+    lectureTime
+  ) => {
+    const ret = addLecture(userName, lectureCode, lectureName, lectureTime);
+    if (ret === 1) alert("등록되었습니다");
+    else alert("알 수 없는 오류가 발생했습니다. 다시 시도해 주세요");
+  };
   return (
     <div className={style.container}>
       <div className={style.modal}>
@@ -20,19 +35,24 @@ const ProfessorHomePageModal = ({ setShowModal }) => {
         <div className={style.contentContainer}>
           <div className={style.content}>
             <div className={style.inputContainer}>
-              <Input placeholder={"과목코드"} />
+              <Input placeholder={"과목코드"} writtenText={setLectureCode} />
             </div>
             <div className={style.inputContainer}>
-              <Input placeholder={"과목명"} />
+              <Input placeholder={"과목명"} writtenText={setLectureName} />
             </div>
             <div className={style.inputContainer}>
-              <Input placeholder={"시간"} />
+              <Input placeholder={"시간"} writtenText={setLectureTime} />
             </div>
             <div className={style.registerButtonContainer}>
               <Button
                 placeholder={"등록하기"}
                 onClick={() => {
-                  alert("hi");
+                  onRegisterButtonClickHandler(
+                    userName,
+                    lectureCode,
+                    lectureName,
+                    lectureTime
+                  );
                 }}
               />
             </div>
