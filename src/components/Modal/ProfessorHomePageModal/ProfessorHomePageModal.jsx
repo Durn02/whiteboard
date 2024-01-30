@@ -20,13 +20,21 @@ const ProfessorHomePageModal = ({ setShowModal }) => {
         <div className={style.contentContainer}>
           <div className={style.content}>
             <div className={style.inputContainer}>
+              <Input placeholder={"과목코드"} />
+            </div>
+            <div className={style.inputContainer}>
               <Input placeholder={"과목명"} />
             </div>
             <div className={style.inputContainer}>
               <Input placeholder={"시간"} />
             </div>
             <div className={style.registerButtonContainer}>
-              <Button placeholder={"등록하기"} />
+              <Button
+                placeholder={"등록하기"}
+                onClick={() => {
+                  alert("hi");
+                }}
+              />
             </div>
           </div>
         </div>
