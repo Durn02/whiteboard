@@ -10,12 +10,17 @@
   height: 300px;
 }
 
-.greetings {
+.greetingsContainer {
   width: fit-content;
   height: fit-content;
   margin-right: 10px;
   font-size: 25px;
   font-family: "korean";
+}
+
+.gotoButtonContainer {
+  width: 200px;
+  height: 100px;
 }
 
 @font-face {
