@@ -6,7 +6,7 @@ import style from "./SigninPage.module.css";
 import { useState } from "react";
 import getUserInfo from "../../utils/getUserInfo";
 
-const SigninPage = ({ setUserInfo }) => {
+const SigninPage = ({ setUserInfo, setLogined }) => {
   const [signInId, setSignInId] = useState(null);
   const [signInPw, setSignInPw] = useState(null);
   const navigator = useNavigate();
@@ -16,6 +16,7 @@ const SigninPage = ({ setUserInfo }) => {
       alert("로그인을 실패했습니다. 아이디와 비밀번호를 다시 확인해주세요");
     else {
       setUserInfo(loginStatus);
+      setLogined(true);
       alert("로그인 성공");
       navigator("/");
     }

@@ -9,8 +9,9 @@ import { useState } from "react";
 
 function App() {
   const [userInfo, setUserInfo] = useState({});
-  alert(JSON.stringify(userInfo));
-  const [logined] = useState(JSON.stringify(userInfo) === "{}" ? false : true);
+  const [logined, setLogined] = useState(
+    JSON.stringify(userInfo) === "{}" ? false : true
+  );
   return (
     <BrowserRouter>
       <Routes>
@@ -20,7 +21,9 @@ function App() {
         />
         <Route
           path="/signin"
-          element={<SigninPage setUserInfo={setUserInfo} />}
+          element={
+            <SigninPage setUserInfo={setUserInfo} setLogined={setLogined} />
+          }
         />
         <Route path="/signup" element={<SignupPage />} />
         {userInfo.isStudent === "Y" ? (

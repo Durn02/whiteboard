@@ -21,7 +21,7 @@ const getLectureInfo = () => {
       name: "컴퓨터프로그래밍11",
       time: "화9 목9",
       prof: "두1",
-      member: ["두2", "두9", "두6", "두8"],
+      member: ["두2", "두9", "두6", "두10"],
     },
     {
       code: "COSE4113",
