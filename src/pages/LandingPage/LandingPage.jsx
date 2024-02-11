@@ -4,7 +4,6 @@ import Header from "../../components/Header/Header";
 import style from "./LandingPage.module.css";
 
 const LandingPage = ({ userInfo, logined }) => {
-  alert(logined);
   return (
     <>
       <Header logined={logined} userInfo={userInfo} />

@@ -10,8 +10,8 @@ const SigninPage = ({ setUserInfo, setLogined }) => {
   const [signInId, setSignInId] = useState(null);
   const [signInPw, setSignInPw] = useState(null);
   const navigator = useNavigate();
-  const loginButtonClickHandler = () => {
-    const loginStatus = getUserInfo(signInId, signInPw);
+  const loginButtonClickHandler = async () => {
+    const loginStatus = await getUserInfo(signInId, signInPw);
     if (loginStatus === 0)
       alert("로그인을 실패했습니다. 아이디와 비밀번호를 다시 확인해주세요");
     else {

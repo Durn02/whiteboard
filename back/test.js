@@ -2,7 +2,7 @@ const mysql = require("mysql2/promise");
 // const { DB_HOST, DB_PORT, DB_USER, DB_PASS, DB_NAME } = process.env;
 const DB_HOST = "localhost";
 const DB_PORT = 3306;
-const DB_USER = "dhdh";
+const DB_USER = "root";
 const DB_PASS = "hellohello";
 const DB_NAME = "whiteboard";
 
@@ -34,12 +34,27 @@ const getUserInfo_back = async (user_id, user_pw) => {
   const results = await runQuery(sql);
   return results;
 };
-(async () => {
+(async function info_test() {
   const stats = await getUserInfo_back("cdh", "1234");
   stats.forEach((stat) => {
     const { USER_ID, USER_PW, USER_NAME, USER_NUMBER, STUDENT_YN } = stat;
     console.log(USER_ID, USER_PW, USER_NAME, USER_NUMBER, STUDENT_YN);
+    const userInfo = {
+      name: USER_NAME,
+      id: USER_ID,
+      pw: USER_PW,
+      student_number: USER_NUMBER,
+      isStudent: STUDENT_YN,
+    };
+    return userInfo;
   });
 })();
+export default info_test;
+// (async function info() {
+//   const stats = await getUserInfo_back("cdh", "1234");
+//   stats.forEach((stat) => {
+//     const { USER_ID, USER_PW, USER_NAME, USER_NUMBER, STUDENT_YN } = stat;
+//     console.log(USER_ID, USER_PW, USER_NAME, USER_NUMBER, STUDENT_YN);
 
-export default getUserInfo_back;
+//   });
+// })();
