@@ -49,7 +49,6 @@ const getUserInfo_back = async (user_id, user_pw) => {
     return userInfo;
   });
 })();
-export default info_test;
 // (async function info() {
 //   const stats = await getUserInfo_back("cdh", "1234");
 //   stats.forEach((stat) => {

@@ -17,7 +17,7 @@ const SigninPage = ({ setUserInfo, setLogined }) => {
     else {
       setUserInfo(loginStatus);
       setLogined(true);
-      alert("로그인 성공");
+      alert("로그인 성공!");
       navigator("/");
     }
   };

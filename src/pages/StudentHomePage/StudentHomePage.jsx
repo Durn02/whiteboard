@@ -4,9 +4,22 @@ import Header from "../../components/Header/Header";
 import StudentTable from "../../components/Table/StudentTable/StudentTable";
 import getLectureInfo from "../../utils/getLectureInfo";
 import style from "./StudentHomePage.module.css";
+import { useEffect } from "react";
 
 const StudentHomePage = ({ userInfo }) => {
-  const lectureInfo = getLectureInfo();
+  const [lectureInfo, setLectureInfo] = useState();
+  const [render, setRender] = useState(0);
+  const getData = async () => {
+    const data = await getLectureInfo();
+    setLectureInfo(data);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+  useEffect(() => {
+    setRender(0);
+    getData();
+  }, [render]);
   const [showMyLecture, setShowMyLecture] = useState(false);
   return (
     <>
@@ -29,6 +42,7 @@ const StudentHomePage = ({ userInfo }) => {
           lectureInfo={lectureInfo}
           userInfo={userInfo}
           showMyLecture={showMyLecture}
+          setRender={setRender}
         />
       </div>
     </>
