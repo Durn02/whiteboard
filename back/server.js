@@ -49,7 +49,7 @@ const getUserInfoDB = async (user_id, user_pw) => {
   const results = await runQuery(sql);
   // console.log(results);
   if (results.length === 0) {
-    console.log("계정 정보 없음");
+    // console.log("계정 정보 없음");
     return 0; // 계정 정보 입력 잘못됨
   } else return results;
 };
@@ -62,7 +62,7 @@ app.post("/getUserInfo", async function (req, res) {
   } else {
     stats.forEach((stat) => {
       const { USER_ID, USER_PW, USER_NAME, USER_NUMBER, STUDENT_YN } = stat;
-      console.log(USER_ID, USER_PW, USER_NAME, USER_NUMBER, STUDENT_YN);
+      // console.log(USER_ID, USER_PW, USER_NAME, USER_NUMBER, STUDENT_YN);
       const userInfo = {
         name: USER_NAME,
         id: USER_ID,
@@ -111,6 +111,56 @@ app.post("/addLectureMember", async function (req, res) {
     const new_member = JSON.stringify([...origin_member, userName]);
     addLectureMember(lectureCode, professor, new_member);
     res.json(1);
+  }
+});
+
+const createUserInfo = async (
+  signUpId,
+  signUpPw,
+  signUpName,
+  signUpNumber,
+  signUpIsStudent
+) => {
+  const sql =
+    "INSERT INTO user_info values('" +
+    signUpId +
+    "', '" +
+    signUpPw +
+    "', '" +
+    signUpName +
+    "', '" +
+    signUpNumber +
+    "', '" +
+    signUpIsStudent +
+    "')";
+  await runQuery(sql);
+};
+
+app.post("/createUserInfo", async function (req, res) {
+  // console.log(req.body);
+  const { signUpId, signUpPw, signUpName, signUpNumber, signUpIsStudent } =
+    req.body;
+  const req2arr = Object.values(req.body);
+  if (
+    req2arr.includes("") === true ||
+    req2arr.includes(undefined) === true ||
+    req2arr.length < 5
+  ) {
+    res.json(-1);
+  } else {
+    const isAlreadyRegisterd = await getUserInfoDB(signUpId, signUpPw);
+    if (isAlreadyRegisterd === 0) {
+      createUserInfo(
+        signUpId,
+        signUpPw,
+        signUpName,
+        signUpNumber,
+        signUpIsStudent
+      );
+      res.json(1);
+    } else {
+      res.json(-2);
+    }
   }
 });
 
