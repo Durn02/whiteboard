@@ -14,7 +14,7 @@ const ProfessorTable = ({ lectureInfo }) => {
           <th>담당교수</th>
         </tr>
       </thead>
-      {lectureInfo.map((lecture, i) => {
+      {lectureInfo?.map((lecture, i) => {
         return (
           <tbody
             key={i}
@@ -23,10 +23,10 @@ const ProfessorTable = ({ lectureInfo }) => {
             }}
           >
             <tr className={style.body}>
-              <td>{lecture.code}</td>
-              <td>{lecture.name}</td>
-              <td>{lecture.time}</td>
-              <td>{lecture.prof}</td>
+              <td>{lecture.LECTURE_CODE}</td>
+              <td>{lecture.LECTURE_NAME}</td>
+              <td>{lecture.LECTURE_TIME}</td>
+              <td>{lecture.PROFESSOR}</td>
             </tr>
           </tbody>
         );

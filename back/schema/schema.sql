@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `lecture_info` (
     , `LECTURE_NAME` varchar(30) NOT NULL COMMENT '과목명'
     , `LECTURE_TIME` varchar(30) NOT NULL COMMENT '수업 시간'
     , `PROFESSOR` varchar(30) NOT NULL COMMENT '교수명'
-    , `MEMBER` varchar(200) NOT NULL COMMENT '수강 명단'
+    , `MEMBER` TEXT NOT NULL COMMENT '수강 명단'
     , PRIMARY KEY (`LECTURE_CODE`, `PROFESSOR`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='강의 정보'
 ;

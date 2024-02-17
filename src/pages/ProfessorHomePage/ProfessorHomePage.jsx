@@ -1,13 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../../components/Button/Button";
 import Header from "../../components/Header/Header";
 import ProfessorTable from "../../components/Table/ProfessorTable/ProfessorTable";
-import getLectureInfo from "../../utils/getLectureInfo";
+import { getLectureInfoByProf } from "../../utils/getLectureInfo";
 import ProfessorHomePageModal from "../../components/Modal/ProfessorHomePageModal/ProfessorHomePageModal";
 import style from "./ProfessorHomePage.module.css";
 
 const ProfessorPage = ({ userInfo }) => {
-  const lectureInfo = getLectureInfo(userInfo.name);
+  const [lectureInfoByProf, setLectureInfoByProf] = useState([]);
+  const [render, setRender] = useState(0);
+  const getData = async () => {
+    const data = await getLectureInfoByProf(userInfo.name);
+    setLectureInfoByProf(data);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+  useEffect(() => {
+    setRender(0);
+    getData();
+  }, [render]);
   const [showModal, setShowModal] = useState(false);
   return (
     <div>
@@ -24,12 +36,13 @@ const ProfessorPage = ({ userInfo }) => {
         </div>
       </div>
       <div className={style.tableContainer}>
-        <ProfessorTable lectureInfo={lectureInfo} />
+        <ProfessorTable lectureInfo={lectureInfoByProf} />
       </div>
       {showModal && (
         <ProfessorHomePageModal
           setShowModal={setShowModal}
           userName={userInfo.name}
+          setRender={setRender}
         />
       )}
     </div>

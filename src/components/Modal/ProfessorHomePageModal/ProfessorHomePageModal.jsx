@@ -4,19 +4,32 @@ import Button from "../../Button/Button";
 import Input from "../../Input/Input";
 import style from "./ProfessorHomePageModal.module.css";
 
-const ProfessorHomePageModal = ({ setShowModal, userName }) => {
+const ProfessorHomePageModal = ({ setShowModal, setRender, userName }) => {
   const [lectureCode, setLectureCode] = useState(null);
   const [lectureName, setLectureName] = useState(null);
   const [lectureTime, setLectureTime] = useState(null);
-  const onRegisterButtonClickHandler = (
+  const onRegisterButtonClickHandler = async (
     userName,
     lectureCode,
     lectureName,
     lectureTime
   ) => {
-    const ret = addLecture(userName, lectureCode, lectureName, lectureTime);
-    if (ret === 1) alert("등록되었습니다");
-    else alert("알 수 없는 오류가 발생했습니다. 다시 시도해 주세요");
+    const req = [userName, lectureCode, lectureName, lectureTime];
+    if (req.includes("") || req.includes(null)) {
+      alert("빈 항목이 있습니다.");
+    } else {
+      const ret = await addLecture(
+        userName,
+        lectureCode,
+        lectureName,
+        lectureTime
+      );
+      if (ret === 1) {
+        alert("등록되었습니다");
+        setShowModal(false);
+        setRender(1);
+      } else alert("알 수 없는 오류가 발생했습니다. 다시 시도해 주세요");
+    }
   };
   return (
     <div className={style.container}>

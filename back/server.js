@@ -47,10 +47,8 @@ const getUserInfoDB = async (user_id, user_pw) => {
     user_pw +
     "';";
   const results = await runQuery(sql);
-  // console.log(results);
   if (results.length === 0) {
-    // console.log("계정 정보 없음");
-    return 0; // 계정 정보 입력 잘못됨
+    return 0;
   } else return results;
 };
 
@@ -62,7 +60,6 @@ app.post("/getUserInfo", async function (req, res) {
   } else {
     stats.forEach((stat) => {
       const { USER_ID, USER_PW, USER_NAME, USER_NUMBER, STUDENT_YN } = stat;
-      // console.log(USER_ID, USER_PW, USER_NAME, USER_NUMBER, STUDENT_YN);
       const userInfo = {
         name: USER_NAME,
         id: USER_ID,
@@ -83,7 +80,6 @@ const getLectureInfo = async () => {
 
 app.get("/getLectureInfo", async function (req, res) {
   const lectures = await getLectureInfo();
-  // console.log(lectures);
   res.json(lectures);
 });
 
@@ -137,7 +133,6 @@ const createUserInfo = async (
 };
 
 app.post("/createUserInfo", async function (req, res) {
-  // console.log(req.body);
   const { signUpId, signUpPw, signUpName, signUpNumber, signUpIsStudent } =
     req.body;
   const req2arr = Object.values(req.body);
@@ -162,6 +157,38 @@ app.post("/createUserInfo", async function (req, res) {
       res.json(-2);
     }
   }
+});
+
+const getLectureInfoByProf = async (profName) => {
+  const sql = "select * from lecture_info where PROFESSOR='" + profName + "';";
+  const result = await runQuery(sql);
+  return result;
+};
+
+app.post("/getLectureInfoByProf", async function (req, res) {
+  const { profName } = req.body;
+  const lectureInfoByProf = await getLectureInfoByProf(profName);
+  res.json(lectureInfoByProf);
+});
+
+const addLecture = async (userName, lectureCode, lectureName, lectureTime) => {
+  const sql =
+    "insert into lecture_info values('" +
+    lectureCode +
+    "', '" +
+    lectureName +
+    "', '" +
+    lectureTime +
+    "', '" +
+    userName +
+    "', '[]')";
+  await runQuery(sql);
+};
+
+app.post("/addLecture", async function (req, res) {
+  const { userName, lectureCode, lectureName, lectureTime } = req.body;
+  addLecture(userName, lectureCode, lectureName, lectureTime);
+  res.json(1);
 });
 
 app.get("*", function (req, res) {

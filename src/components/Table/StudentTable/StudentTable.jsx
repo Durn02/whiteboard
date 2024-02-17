@@ -8,7 +8,6 @@ const onRegisterBttonClickHandler = (index, userName, setRender) => {
     if (result === 1) alert("신청되었습니다!");
     else if (result === 0) alert("이미 신청한 강의입니다!");
     else alert("알 수 없는 오류가 발생했습니다. 다시 시도해 주세요");
-    // console.log(result);
     setRender(1);
   });
 };

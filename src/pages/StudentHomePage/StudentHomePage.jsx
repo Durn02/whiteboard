@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "../../components/Button/Button";
 import Header from "../../components/Header/Header";
 import StudentTable from "../../components/Table/StudentTable/StudentTable";
-import getLectureInfo from "../../utils/getLectureInfo";
+import { getLectureInfo } from "../../utils/getLectureInfo";
 import style from "./StudentHomePage.module.css";
 import { useEffect } from "react";
 
