@@ -36,7 +36,7 @@ const ProfessorPage = ({ userInfo }) => {
         </div>
       </div>
       <div className={style.tableContainer}>
-        <ProfessorTable lectureInfo={lectureInfoByProf} />
+        <ProfessorTable lectureInfoByProf={lectureInfoByProf} />
       </div>
       {showModal && (
         <ProfessorHomePageModal

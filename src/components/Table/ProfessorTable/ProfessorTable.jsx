@@ -1,6 +1,6 @@
 import style from "./ProfessorTable.module.css";
 
-const ProfessorTable = ({ lectureInfo }) => {
+const ProfessorTable = ({ lectureInfoByProf }) => {
   const onTableClickHandler = (member) => {
     alert(member);
   };
@@ -14,12 +14,12 @@ const ProfessorTable = ({ lectureInfo }) => {
           <th>담당교수</th>
         </tr>
       </thead>
-      {lectureInfo?.map((lecture, i) => {
+      {lectureInfoByProf?.map((lecture, i) => {
         return (
           <tbody
             key={i}
             onDoubleClick={() => {
-              onTableClickHandler(lecture.member);
+              onTableClickHandler(lecture.MEMBER);
             }}
           >
             <tr className={style.body}>
