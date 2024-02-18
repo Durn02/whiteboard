@@ -4,7 +4,7 @@ var cors = require("cors");
 const mysql = require("mysql2/promise");
 const DB_HOST = "localhost";
 const DB_PORT = 3306;
-const DB_USER = "root";
+const DB_USER = "dhdh";
 const DB_PASS = "hellohello";
 const DB_NAME = "whiteboard";
 
@@ -135,6 +135,7 @@ const createUserInfo = async (
 app.post("/createUserInfo", async function (req, res) {
   const { signUpId, signUpPw, signUpName, signUpNumber, signUpIsStudent } =
     req.body;
+  // console.log(signUpId, signUpPw, signUpName, signUpNumber, signUpIsStudent);
   const req2arr = Object.values(req.body);
   if (
     req2arr.includes("") === true ||
