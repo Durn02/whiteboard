@@ -1,4 +1,4 @@
-import addMember from "../../../utils/setLectureInfo/addMember";
+import addMember from "../../../utils/setLectureInfo/AddMember";
 import Button from "../../Button/Button";
 import style from "./StudentTable.module.css";
 
