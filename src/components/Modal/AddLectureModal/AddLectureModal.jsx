@@ -2,9 +2,9 @@ import { useState } from "react";
 import addLecture from "../../../utils/setLectureInfo/addLecture";
 import Button from "../../Button/Button";
 import Input from "../../Input/Input";
-import style from "./ProfessorHomePageModal.module.css";
+import style from "./AddLectureModal.module.css";
 
-const ProfessorHomePageModal = ({ setShowModal, setRender, userName }) => {
+const AddLectureModal = ({ setShowModal, setRender, userName }) => {
   const [lectureCode, setLectureCode] = useState(null);
   const [lectureName, setLectureName] = useState(null);
   const [lectureTime, setLectureTime] = useState(null);
@@ -76,4 +76,4 @@ const ProfessorHomePageModal = ({ setShowModal, setRender, userName }) => {
   );
 };
 
-export default ProfessorHomePageModal;
+export default AddLectureModal;
