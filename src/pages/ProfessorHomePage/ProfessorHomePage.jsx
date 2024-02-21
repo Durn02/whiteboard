@@ -58,6 +58,8 @@ const ProfessorPage = ({ userInfo }) => {
           setShowAddPostModal={setShowAddPostModal}
           lectureId={lectureId}
           profName={userInfo.name}
+          lectureInfoByProf={lectureInfoByProf}
+          setRender={setRender}
         />
       )}
     </div>

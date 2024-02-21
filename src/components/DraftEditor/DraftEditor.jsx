@@ -34,7 +34,7 @@ const DraftEditor = ({ quillValue, setQuillValue }) => {
     "background",
   ];
   const handleQuillChange = (content, delta, source, editor) => {
-    setQuillValue(editor.getContents());
+    setQuillValue(editor.getHTML());
   };
   return (
     <>

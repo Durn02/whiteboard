@@ -1,17 +1,30 @@
 import DraftEditor from "../../DraftEditor/DraftEditor";
 import Button from "../../Button/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./AddPostModal.module.css";
 import addPost from "../../../utils/setLectureInfo/addPost";
 
-const AddPostModal = ({ setShowAddPostModal, lectureId, profName }) => {
-  const [quillValue, setQuillValue] = useState("");
+const AddPostModal = ({
+  setShowAddPostModal,
+  lectureId,
+  profName,
+  lectureInfoByProf,
+  setRender,
+}) => {
+  const [quillValue, setQuillValue] = useState();
+  useEffect(() => {
+    const text = lectureInfoByProf[lectureId].PROF_POST;
+    console.log(text.slice(1, text.length - 1));
+    setQuillValue(text.slice(1, text.length - 1));
+  }, []);
   const onPostSaveButtonClickHandler = async () => {
+    console.log(quillValue);
     const result = await addPost(lectureId, profName, quillValue);
     if (result === 1) {
       alert("저장되었습니다!");
       setShowAddPostModal(false);
       setQuillValue("");
+      setRender(1);
     } else {
       alert("알 수 없는 이유로 저장되지 않았습니다.");
     }
