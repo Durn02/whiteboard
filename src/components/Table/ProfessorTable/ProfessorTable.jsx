@@ -1,8 +1,17 @@
 import style from "./ProfessorTable.module.css";
+import Button from "../../Button/Button";
 
-const ProfessorTable = ({ lectureInfoByProf }) => {
+const ProfessorTable = ({
+  lectureInfoByProf,
+  setShowAddPostModal,
+  setLectureId,
+}) => {
   const onTableClickHandler = (member) => {
     alert(member);
+  };
+  const onPostButtonClickHandler = (lectureId) => {
+    setShowAddPostModal(true);
+    setLectureId(lectureId);
   };
   return (
     <table className={style.table}>
@@ -12,6 +21,7 @@ const ProfessorTable = ({ lectureInfoByProf }) => {
           <th>과목명</th>
           <th>시간</th>
           <th>담당교수</th>
+          <th></th>
         </tr>
       </thead>
       {lectureInfoByProf?.map((lecture, i) => {
@@ -27,6 +37,16 @@ const ProfessorTable = ({ lectureInfoByProf }) => {
               <td>{lecture.LECTURE_NAME}</td>
               <td>{lecture.LECTURE_TIME}</td>
               <td>{lecture.PROFESSOR}</td>
+              <td>
+                <div className={style.buttonContainer}>
+                  <Button
+                    placeholder={"게시물"}
+                    onClick={() => {
+                      onPostButtonClickHandler(i);
+                    }}
+                  />
+                </div>
+              </td>
             </tr>
           </tbody>
         );

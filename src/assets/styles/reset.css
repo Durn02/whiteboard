@@ -47,6 +47,15 @@ a {
   text-decoration: none;
 }
 
+b,
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
 li {
   list-style-type: none;
 }

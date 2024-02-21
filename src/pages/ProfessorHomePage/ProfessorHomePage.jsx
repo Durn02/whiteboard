@@ -3,7 +3,8 @@ import Button from "../../components/Button/Button";
 import Header from "../../components/Header/Header";
 import ProfessorTable from "../../components/Table/ProfessorTable/ProfessorTable";
 import { getLectureInfoByProf } from "../../utils/getLectureInfo";
-import ProfessorHomePageModal from "../../components/Modal/ProfessorHomePageModal/ProfessorHomePageModal";
+import AddLectureModal from "../../components/Modal/AddLectureModal/AddLectureModal";
+import AddPostModal from "../../components/Modal/AddPostModal/AddPostModal";
 import style from "./ProfessorHomePage.module.css";
 
 const ProfessorPage = ({ userInfo }) => {
@@ -20,7 +21,10 @@ const ProfessorPage = ({ userInfo }) => {
     setRender(0);
     getData();
   }, [render]);
-  const [showModal, setShowModal] = useState(false);
+  const [showAddLectureModal, setShowAddLectureModal] = useState(false);
+  const [showAddPostModal, setShowAddPostModal] = useState(false);
+  const [lectureId, setLectureId] = useState(0);
+
   return (
     <div>
       <Header logined={true} userInfo={userInfo} />
@@ -30,19 +34,30 @@ const ProfessorPage = ({ userInfo }) => {
           <Button
             placeholder={"강의추가"}
             onClick={() => {
-              setShowModal(true);
+              setShowAddLectureModal(true);
             }}
           />
         </div>
       </div>
       <div className={style.tableContainer}>
-        <ProfessorTable lectureInfoByProf={lectureInfoByProf} />
+        <ProfessorTable
+          lectureInfoByProf={lectureInfoByProf}
+          setShowAddPostModal={setShowAddPostModal}
+          setLectureId={setLectureId}
+        />
       </div>
-      {showModal && (
-        <ProfessorHomePageModal
-          setShowModal={setShowModal}
+      {showAddLectureModal && (
+        <AddLectureModal
+          setShowAddLectureModal={setShowAddLectureModal}
           userName={userInfo.name}
           setRender={setRender}
+        />
+      )}
+      {showAddPostModal && (
+        <AddPostModal
+          setShowAddPostModal={setShowAddPostModal}
+          lectureId={lectureId}
+          profName={userInfo.name}
         />
       )}
     </div>

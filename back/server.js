@@ -182,13 +182,36 @@ const addLecture = async (userName, lectureCode, lectureName, lectureTime) => {
     lectureTime +
     "', '" +
     userName +
-    "', '[]')";
+    "', '[]', '')";
   await runQuery(sql);
 };
 
 app.post("/addLecture", async function (req, res) {
   const { userName, lectureCode, lectureName, lectureTime } = req.body;
   addLecture(userName, lectureCode, lectureName, lectureTime);
+  res.json(1);
+});
+
+const addPost = async (lectureId, userName, postContent) => {
+  const lectures = await getLectureInfoByProf(userName);
+  // console.log(userName);
+  const sql =
+    "UPDATE lecture_info SET PROF_POST='" +
+    JSON.stringify(postContent) +
+    "' WHERE LECTURE_CODE='" +
+    lectures[lectureId].LECTURE_CODE +
+    "' and PROFESSOR='" +
+    lectures[lectureId].PROFESSOR +
+    "';";
+  await runQuery(sql);
+
+  // lectures[lectureId].PROF_POST
+};
+
+app.post("/addPost", async function (req, res) {
+  const { lectureId, profName, postContent } = req.body;
+  console.log(lectureId, profName, postContent);
+  addPost(lectureId, profName, postContent);
   res.json(1);
 });
 

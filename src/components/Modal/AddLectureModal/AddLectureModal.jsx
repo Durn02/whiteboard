@@ -4,7 +4,7 @@ import Button from "../../Button/Button";
 import Input from "../../Input/Input";
 import style from "./AddLectureModal.module.css";
 
-const AddLectureModal = ({ setShowModal, setRender, userName }) => {
+const AddLectureModal = ({ setShowAddLectureModal, setRender, userName }) => {
   const [lectureCode, setLectureCode] = useState(null);
   const [lectureName, setLectureName] = useState(null);
   const [lectureTime, setLectureTime] = useState(null);
@@ -26,7 +26,7 @@ const AddLectureModal = ({ setShowModal, setRender, userName }) => {
       );
       if (ret === 1) {
         alert("등록되었습니다");
-        setShowModal(false);
+        setShowAddLectureModal(false);
         setRender(1);
       } else alert("알 수 없는 오류가 발생했습니다. 다시 시도해 주세요");
     }
@@ -40,7 +40,7 @@ const AddLectureModal = ({ setShowModal, setRender, userName }) => {
             <Button
               placeholder={"X"}
               onClick={() => {
-                setShowModal(false);
+                setShowAddLectureModal(false);
               }}
             />
           </div>
