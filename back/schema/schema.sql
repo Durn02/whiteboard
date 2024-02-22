@@ -7,6 +7,11 @@ CREATE DATABASE whiteboard;
 -- 3. Grant All Privileges on whiteboard Table to “kwebuser” User
 grant all privileges on whiteboard.* to 'dhdh'@'%';
 
+mysql -u dhdh -p hellohello;
+
+-- 4. use
+use whiteboard
+
 CREATE TABLE IF NOT EXISTS `user_info` (
       `USER_ID` varchar(30) NOT NULL COMMENT '유저 아이디'
     , `USER_PW` varchar(30) NOT NULL COMMENT '유저 비밀번호'
