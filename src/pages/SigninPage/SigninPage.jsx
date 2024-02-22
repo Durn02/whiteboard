@@ -11,14 +11,18 @@ const SigninPage = ({ setUserInfo, setLogined }) => {
   const [signInPw, setSignInPw] = useState(null);
   const navigator = useNavigate();
   const loginButtonClickHandler = async () => {
-    const loginStatus = await getUserInfo(signInId, signInPw);
-    if (loginStatus === 0)
-      alert("로그인을 실패했습니다. 아이디와 비밀번호를 다시 확인해주세요");
-    else {
-      setUserInfo(loginStatus);
-      setLogined(true);
-      alert("로그인 성공!");
-      navigator("/");
+    if (!signInId || !signInPw) {
+      alert("빈 항목이 있습니다.");
+    } else {
+      const loginStatus = await getUserInfo(signInId, signInPw);
+      if (loginStatus === 0)
+        alert("로그인을 실패했습니다. 아이디와 비밀번호를 다시 확인해주세요");
+      else {
+        setUserInfo(loginStatus);
+        setLogined(true);
+        alert("로그인 성공!");
+        navigator("/");
+      }
     }
   };
 

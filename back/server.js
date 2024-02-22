@@ -1,7 +1,9 @@
 const express = require("express");
+const { encryptPw } = require("./util/encryptPw");
+const { verifyPw } = require("./util/verifyPw");
 const path = require("path");
-var cors = require("cors");
 const mysql = require("mysql2/promise");
+var cors = require("cors");
 const DB_HOST = "localhost";
 const DB_PORT = 3306;
 const DB_USER = "dhdh";
@@ -39,24 +41,27 @@ const runQuery = async (pstmt, data) => {
     conn.release();
   }
 };
-const getUserInfoDB = async (user_id, user_pw) => {
-  const sql =
-    "SELECT * FROM USER_INFO WHERE USER_ID='" +
-    user_id +
-    "' AND USER_PW='" +
-    user_pw +
-    "';";
+const getUserInfoDB = async (user_id, signInPw) => {
+  const sql = "SELECT * FROM USER_INFO WHERE USER_ID='" + user_id + "';";
   const results = await runQuery(sql);
   if (results.length === 0) {
     return 0;
-  } else return results;
+  } else {
+    await results.forEach(async (element) => {
+      const verify = await verifyPw(signInPw, element.USER_PW);
+      if (verify === 0) {
+        return element;
+      }
+    });
+    return results;
+  }
 };
 
 app.post("/getUserInfo", async function (req, res) {
   const { signInId, signInPw } = req.body;
   const stats = await getUserInfoDB(signInId, signInPw);
   if (stats === 0) {
-    res.json({ status: "not found" });
+    res.json(0);
   } else {
     stats.forEach((stat) => {
       const { USER_ID, USER_PW, USER_NAME, USER_NUMBER, STUDENT_YN } = stat;
@@ -112,7 +117,7 @@ app.post("/addLectureMember", async function (req, res) {
 
 const createUserInfo = async (
   signUpId,
-  signUpPw,
+  hashedsignUpPw,
   signUpName,
   signUpNumber,
   signUpIsStudent
@@ -121,7 +126,7 @@ const createUserInfo = async (
     "INSERT INTO user_info values('" +
     signUpId +
     "', '" +
-    signUpPw +
+    hashedsignUpPw +
     "', '" +
     signUpName +
     "', '" +
@@ -135,7 +140,6 @@ const createUserInfo = async (
 app.post("/createUserInfo", async function (req, res) {
   const { signUpId, signUpPw, signUpName, signUpNumber, signUpIsStudent } =
     req.body;
-  // console.log(signUpId, signUpPw, signUpName, signUpNumber, signUpIsStudent);
   const req2arr = Object.values(req.body);
   if (
     req2arr.includes("") === true ||
@@ -146,9 +150,10 @@ app.post("/createUserInfo", async function (req, res) {
   } else {
     const isAlreadyRegisterd = await getUserInfoDB(signUpId, signUpPw);
     if (isAlreadyRegisterd === 0) {
+      const hashedsignUpPw = await encryptPw(signUpPw);
       createUserInfo(
         signUpId,
-        signUpPw,
+        hashedsignUpPw,
         signUpName,
         signUpNumber,
         signUpIsStudent
