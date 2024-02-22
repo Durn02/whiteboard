@@ -5,10 +5,13 @@ import StudentTable from "../../components/Table/StudentTable/StudentTable";
 import { getLectureInfo } from "../../utils/getLectureInfo";
 import style from "./StudentHomePage.module.css";
 import { useEffect } from "react";
+import GetPostModal from "../../components/Modal/GetPostModal/GetPostModal";
 
 const StudentHomePage = ({ userInfo }) => {
   const [lectureInfo, setLectureInfo] = useState();
   const [render, setRender] = useState(0);
+  const [showPostModal, setShowPostModal] = useState(false);
+  const [lectureId, setLectureId] = useState(0);
   const getData = async () => {
     const data = await getLectureInfo();
     setLectureInfo(data);
@@ -43,8 +46,18 @@ const StudentHomePage = ({ userInfo }) => {
           userInfo={userInfo}
           showMyLecture={showMyLecture}
           setRender={setRender}
+          setLectureId={setLectureId}
+          setShowPostModal={setShowPostModal}
         />
       </div>
+      {showPostModal && (
+        <GetPostModal
+          setShowPostModal={setShowPostModal}
+          lectureId={lectureId}
+          lectureInfo={lectureInfo}
+          setRender={setRender}
+        />
+      )}
     </>
   );
 };

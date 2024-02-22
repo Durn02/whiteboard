@@ -2,19 +2,25 @@ import addMember from "../../../utils/setLectureInfo/addMember";
 import Button from "../../Button/Button";
 import style from "./StudentTable.module.css";
 
-const onRegisterBttonClickHandler = (index, userName, setRender) => {
-  const ret = addMember(index, userName);
-  ret.then((result) => {
-    if (result === 1) alert("신청되었습니다!");
-    else if (result === 0) alert("이미 신청한 강의입니다!");
-    else alert("알 수 없는 오류가 발생했습니다. 다시 시도해 주세요");
-    setRender(1);
-  });
-};
-
-const Rows = ({ index, lecture, rowColor, userName, setRender }) => {
+const Rows = ({
+  index,
+  lecture,
+  rowColor,
+  userName,
+  setRender,
+  onDoubleClick,
+}) => {
+  const onRegisterBttonClickHandler = () => {
+    const ret = addMember(index, userName);
+    ret.then((result) => {
+      if (result === 1) alert("신청되었습니다!");
+      else if (result === 0) alert("이미 신청한 강의입니다!");
+      else alert("알 수 없는 오류가 발생했습니다. 다시 시도해 주세요");
+      setRender(1);
+    });
+  };
   return (
-    <tbody className={rowColor}>
+    <tbody className={rowColor} onDoubleClick={onDoubleClick}>
       <tr>
         <td>{lecture.LECTURE_CODE}</td>
         <td>{lecture.LECTURE_NAME}</td>
@@ -24,9 +30,7 @@ const Rows = ({ index, lecture, rowColor, userName, setRender }) => {
           <div className={style.buttonContainer}>
             <Button
               placeholder={"신청"}
-              onClick={() => {
-                onRegisterBttonClickHandler(index, userName, setRender);
-              }}
+              onClick={() => onRegisterBttonClickHandler()}
             />
           </div>
         </td>
@@ -35,9 +39,20 @@ const Rows = ({ index, lecture, rowColor, userName, setRender }) => {
   );
 };
 
-const StudentTable = ({ lectureInfo, userInfo, showMyLecture, setRender }) => {
+const StudentTable = ({
+  lectureInfo,
+  userInfo,
+  showMyLecture,
+  setRender,
+  setLectureId,
+  setShowPostModal,
+}) => {
   let rowColor = style.bodyContainer;
-
+  const onGetPostButtonClickHandler = (index) => {
+    setRender(2);
+    setShowPostModal(true);
+    setLectureId(index);
+  };
   // const getRowColor = (rowColor) => {
   //   return style
   // }
@@ -65,6 +80,7 @@ const StudentTable = ({ lectureInfo, userInfo, showMyLecture, setRender }) => {
               rowColor={rowColor}
               userName={userInfo.name}
               setRender={setRender}
+              onDoubleClick={() => onGetPostButtonClickHandler(i)}
             />
           );
         })}
