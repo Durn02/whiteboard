@@ -12,9 +12,11 @@ mysql -u dhdh -p hellohello;
 -- 4. use
 use whiteboard
 
+-- ALTER TABLE user_info MODIFY varchar(100)
+
 CREATE TABLE IF NOT EXISTS `user_info` (
       `USER_ID` varchar(30) NOT NULL COMMENT '유저 아이디'
-    , `USER_PW` varchar(30) NOT NULL COMMENT '유저 비밀번호'
+    , `USER_PW` varchar(200) NOT NULL COMMENT '유저 비밀번호'
     , `USER_NAME` varchar(30) NOT NULL COMMENT '유저 본명'
     , `USER_NUMBER` varchar(30) COMMENT '유저 학번, 교수이면 null'
     , `STUDENT_YN` varchar(5) NOT NULL COMMENT '교수/학생 여부, 학생이면 Y'
