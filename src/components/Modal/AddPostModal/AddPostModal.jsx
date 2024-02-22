@@ -14,11 +14,9 @@ const AddPostModal = ({
   const [quillValue, setQuillValue] = useState();
   useEffect(() => {
     const text = lectureInfoByProf[lectureId].PROF_POST;
-    console.log(text.slice(1, text.length - 1));
     setQuillValue(text.slice(1, text.length - 1));
   }, []);
   const onPostSaveButtonClickHandler = async () => {
-    console.log(quillValue);
     const result = await addPost(lectureId, profName, quillValue);
     if (result === 1) {
       alert("저장되었습니다!");

@@ -210,7 +210,7 @@ const addPost = async (lectureId, userName, postContent) => {
 
 app.post("/addPost", async function (req, res) {
   const { lectureId, profName, postContent } = req.body;
-  console.log(lectureId, profName, postContent);
+  // console.log(lectureId, profName, postContent);
   addPost(lectureId, profName, postContent);
   res.json(1);
 });
