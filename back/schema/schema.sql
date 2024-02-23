@@ -4,15 +4,15 @@ CREATE USER 'dhdh'@'%' IDENTIFIED BY 'hellohello';
 -- 2. CREATE DATABASE
 CREATE DATABASE whiteboard;
 
--- 3. Grant All Privileges on whiteboard Table to “kwebuser” User
+-- 3. Grant All Privileges on whiteboard Table to dhdh
 grant all privileges on whiteboard.* to 'dhdh'@'%';
+
+-- logout
 
 mysql -u dhdh -p hellohello;
 
 -- 4. use
 use whiteboard
-
--- ALTER TABLE user_info MODIFY varchar(100)
 
 CREATE TABLE IF NOT EXISTS `user_info` (
       `USER_ID` varchar(30) NOT NULL COMMENT '유저 아이디'
